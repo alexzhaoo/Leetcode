@@ -1,17 +1,14 @@
 def maxprofit(prices):
     mydic={}
     for i in range(len(prices)):
-        if prices[i] not in mydic:
-            mydic[prices[i]]=i
-        else:
-            mydic[prices[i]]=i
-    for i in range(len(mydic)):
-        if mydic[max(mydic.keys())]>mydic[min(mydic.keys())]:
-            return max(mydic.keys())-min(mydic.keys())
-        elif mydic[max(mydic.keys())]<mydic[min(mydic.keys())]:
-            del mydic[max(mydic.keys())]
+        if prices.index(max(prices))==0:
+            prices.pop(prices.index(max(prices)))
+        if prices.index((min(prices,default=0)))>prices.index((max(prices,default=0))):
+            prices=prices[:prices.index(min(prices))]
+        elif prices.index((min(prices)))<prices.index((max(prices))):
+            return max(prices)-min(prices)   
     return 0
 
-print(maxprofit([7,1,5,3,6,4]))
+print(maxprofit([1,5,3,9,4]))
 
         
